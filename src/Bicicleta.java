@@ -11,7 +11,7 @@ public class Bicicleta extends Veiculos {
         super(GetId.getNextId(bikecem),id, nome);
         this.marca = marca;
         this.cor = cor;
-
+        
         bikecem.add(this);
     }
     
