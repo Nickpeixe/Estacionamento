@@ -9,7 +9,7 @@ public class Locacao extends Veiculos {
 
     public Locacao(String data, int id, String nome)  {
         super(GetId.getNextId(aloca),id, nome);
-        this.data = data;
+        
         
         aloca.add(this);
     }
