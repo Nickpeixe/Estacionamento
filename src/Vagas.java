@@ -10,15 +10,15 @@ public class Vagas {
     private static ArrayList<Vagas> vaguinha = new ArrayList<Vagas>();
 
     public Vagas(int id, String numero, String tipo, int tamanho, double valor){
-        this.id = id;
-        this.numero = numero;
-        this.tipo = tipo;
-        this.tamanho = tamanho;
-        this.valor = valor;
+        this.setId(id);;
+        this.setNumero(numero);;
+        this.setTipo(tipo);;
+        this.setTamanho(tamanho);
+        this.setValor(valor);;
 
         this.locacoes = new ArrayList<Locacao>();
 
-
+        vaguinha.add(this);
     }
     public int getId() {
         return id;
@@ -78,7 +78,10 @@ public class Vagas {
         Vagas vagas = verificaVaga(id);
         vaguinha.remove(vagas);
     }
-    
+    @Override
+    public String toString() {
+        return "Vagas [id=" + id + ", numero=" + numero + ", tipo=" + tipo + ", tamanho=" + tamanho + ", valor=" + valor;
 
 
+}
 }

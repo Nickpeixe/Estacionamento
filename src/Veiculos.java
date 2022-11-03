@@ -1,21 +1,31 @@
 import java.util.ArrayList;
 
-public abstract class Veiculos implements GetId {
-
+public class Veiculos implements GetId{
     private int id;
     private String nome;
-
-    protected Veiculos(int id, String nome) {
-        this.id = id;
-        this.nome = nome;
+    
+    protected ArrayList<Locacao>locacoes;
+    
+    public Veiculos(int id, String nome){
+        this.setId(id);
+        this.setNome(nome);
         
     }
 
     public int getId() {
         return id;
     }
+    private int setId(int id) {
+        return this.id=id;
+    }
+    private String setNome(String nome){
+        return this.nome=nome;
 
-    public String getNome() {
+    }
+    public String  getNome(){
         return nome;
     }
-}
+   
+  
+
+}   

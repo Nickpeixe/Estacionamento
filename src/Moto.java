@@ -1,57 +1,56 @@
 import java.util.ArrayList;
-
 public class Moto extends Veiculos {
-    
     private String placa;
     private String cilindrada;
     
-    private static ArrayList<Moto> randandan = new ArrayList<>();
+    
+    private static ArrayList<Moto> motocicleta=new ArrayList<>();
 
-    public Moto(String placa, String cor, String cilindrada, int id, String nome)  {
-        super(GetId.getNextId(randandan),id, nome);
-        this.placa = placa;
-        this.cilindrada = cilindrada;
-
-        randandan.add(this);
+    public Moto(String nome,String placa,String cilindrada){
+        super(GetId.getNextId(motocicleta),nome);
+        this.setPlaca(placa);;
+        this.setCilindrada(cilindrada);;;
+       motocicleta.add(this);
     }
     
-    public String getPlaca() {
+   
+    public String getPlaca(){
         return placa;
     }
-    
-    public void setPlaca(String placa) {
-        this.placa = placa;
-    }
-    public String getCilindrada() {
+    public String getCilindrada(){
         return cilindrada;
     }
-    
-    public void setCilindrada(String cilindrada) {
+    public void setPlaca(String placa){ 
+        this.placa = placa;
+    }
+    public void setCilindrada(String cilindrada){
         this.cilindrada = cilindrada;
     }
+    public static ArrayList<Moto> getMotocicleta(){
 
-    public static ArrayList<Moto> getMoto() {
-        return randandan;
+        return motocicleta;
     }
+   
 
-    public static Moto getMoto(int id) throws Exception {
-        for (Moto moto : randandan) {
+    public static Moto verificaId(int id) throws Exception {
+        for (Moto moto : motocicleta) {
             if (moto.getId() == id) {
                 return moto;
             }
         }
-        throw new Exception("Moto não encontrado");
+        throw new Exception("Mamífero não encontrado");
     }
 
     public static void removeMoto(int id) throws Exception {
-        Moto moto = getMoto(id);
-        randandan.remove(moto);
+        Moto moto = verificaId(id);
+        motocicleta.remove(moto);
     }
     
     @Override
     public String toString() {
-        return super.toString() + "Habitat=" + placa + "\n";
-        return super.toString() + "Habitat=" + cilindrada + "\n";
+        return ("Id do carro: " + super.getId() + "\n" +
+        "Nome: " + super.getNome() + "\n" +
+        "Placa: " + this.getPlaca() + "\n" +
+        "Cilindrada: " + this.getCilindrada());
     }
-    
 }
